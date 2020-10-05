@@ -52,6 +52,7 @@
     <Compile Include="admin.Designer.cs">
       <DependentUpon>admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dataconnection.cs" />
     <Compile Include="F1.cs">
       <SubType>Form</SubType>
     </Compile>
