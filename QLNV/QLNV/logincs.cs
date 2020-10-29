@@ -17,22 +17,20 @@ namespace QLNV
         public static string ID_USER = "";
         public static string USERNAME = "";
         public static string LEVEL = "";
-        Dataconnection da;
         public logincs()
         {
             InitializeComponent();
-            da = new Dataconnection();
         }
+        string chuoiketnoi = @"Data Source = .\SQLEXPRESS; Initial Catalog = QL_NV; Integrated Security = True";
         SqlConnection conn;
         private void button1_Click(object sender, EventArgs e)
         {
-            conn = da.GetSqlConnection();
             string id = "";
             string level = "";
             string username = "";
             try
             {
-                using (conn = da.GetSqlConnection())
+                using (conn = new SqlConnection(chuoiketnoi))
                 {
                     conn.Open();
                     string sql = " SELECT CAPDO , MA_ADMIN , USERNAME FROM ADMIN WHERE USERNAME = '" + textBox1.Text + "' and PASSWORD = '" + textBox2.Text +"'";

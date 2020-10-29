@@ -14,11 +14,9 @@ namespace QLNV
 {
     public partial class nhanvien : Form
     {
-        Dataconnection da;
         public nhanvien()
         {
             InitializeComponent();
-            da = new Dataconnection();
         }
 
         private void nhanvien_Load(object sender, EventArgs e)
@@ -27,11 +25,11 @@ namespace QLNV
             load();
 
         }
-       
+        string chuoiketnoi = @"Data Source = .\SQLEXPRESS; Initial Catalog = QL_NV; Integrated Security = True";
         SqlConnection conn;
         private void load()
         {
-            conn = da.GetSqlConnection();
+            conn = new SqlConnection(chuoiketnoi);
             try
             {
                 //this.nHANVIENTableAdapter.Fill(this.qL_NVDataSet_nhanvien.NHANVIEN);
@@ -96,7 +94,7 @@ namespace QLNV
 
         private void button5_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = da.GetSqlConnection();
+            SqlConnection conn = new SqlConnection(chuoiketnoi);
             try
             {
                 conn.Open();
@@ -126,7 +124,7 @@ namespace QLNV
             thongbao = MessageBox.Show("Bạn có chắc chắn xóa!!","thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if(thongbao ==DialogResult.OK)
             {
-                SqlConnection conn = da.GetSqlConnection();
+                SqlConnection conn = new SqlConnection(chuoiketnoi);
                 try
                 {
                     conn.Open();
