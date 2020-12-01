@@ -7,19 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace QLNV
 {
-    public partial class F1 : Form
+    class Dataconnection
     {
-        public F1()
+        public SqlConnection GetSqlConnection()
         {
-            InitializeComponent();
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-//
+            return new SqlConnection(@"Data Source=DESKTOP-RQCU70R\SQLEXPRESS;Initial Catalog=QL_NV;Integrated Security=True");
         }
     }
 }
